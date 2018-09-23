@@ -1,0 +1,35 @@
+{
+  "name": "nodebb-widget-image-page",
+  "version": "4.0.7",
+  "description": "NodeBB Image Page Widgets",
+  "main": "library.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psychobunny/nodebb-widget-image-page"
+  },
+  "keywords": [
+    "nodebb",
+    "widget",
+    "essentials",
+    "markdown",
+    "text"
+  ],
+  "author": {
+    "name": "psychobunny",
+    "email": "psycho.bunny@hotmail.com"
+  },
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/psychobunny/nodebb-widget-image-page/issues"
+  },
+  "readme": "",
+  "readmeFilename": "README.md",
+  "_id": "nodebb-widget-image-page@0.0.1",
+  "_from": "nodebb-widget-image-page@~0.0.1",
+  "nbbpm": {
+    "compatibility": "^1.7.0"
+  }
+}
