@@ -69,7 +69,8 @@
 	imagesLoaded('.recent_posts_with_media', function() {
 		var msnry = new Masonry( '.recent_posts_with_media', {
 			itemSelector: '.recent_post_with_media',
-			columnWidth: 260
+			columnWidth: 260,
+			fitWidth: true
 		});
 	});
 
@@ -85,7 +86,7 @@
 		}
 		setTimeout(function(){postHoverHook();}, 500);
 	}
-	postHoverHook();
+	// postHoverHook();
 
 })();
 </script>
