@@ -6,19 +6,16 @@ var validator = module.parent.require('validator');
 
 var db = module.parent.require('./database');
 var categories = module.parent.require('./categories');
-var user = module.parent.require('./user');
-var plugins = module.parent.require('./plugins');
-var topics = module.parent.require('./topics');
 var posts = module.parent.require('./posts');
 var groups = module.parent.require('./groups');
-var utils = module.parent.require('./utils');
 
 var benchpressjs = module.parent.require('benchpressjs');
 
 var app;
 
 var Widget = module.exports;
-const searchRegex = /\/assets\/uploads\/files\/([^\s")]+\.?[\w]*)/g;
+// const searchRegex = /\/assets\/uploads\/files\/([^\s")]+\.?[\w]*)/g;
+const searchRegex = /(\/assets\/uploads\/files\/.*?\")/
 
 Widget.init = function(params, callback) {
 	app = params.app;
@@ -47,13 +44,12 @@ Widget.renderRecentPostsWithImageWidget = function(widget, callback) {
 		var match = widget.area.url.match('category/([0-9]+)');
 		cid = (match && match.length > 1) ? match[1] : null;
 	}
-	var numPosts = widget.data.numPosts || 4;
+	var numPosts = widget.data.numPosts || 10;
 	async.waterfall([
 		function (next) {
 			if (cid) {
 				categories.getRecentReplies(cid, widget.uid, numPosts, next);
 			} else {
-
 				posts.getRecentPosts(widget.uid, 0, Math.max(0, numPosts - 1), 'alltime', next);
 			}
 		},
@@ -63,7 +59,7 @@ Widget.renderRecentPostsWithImageWidget = function(widget, callback) {
 			postsData.forEach(function(post){
 				let match = searchRegex.exec(post.content);
 				if (match) {
-					var firstMedia = (match[0].replace('-resized', ''));
+					var firstMedia = match[0].replace('-resized', '').replace('"','');
 					post.firstMedia = firstMedia;
 					postsWithMedia.push(post);
 				}

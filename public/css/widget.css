@@ -2,19 +2,26 @@
 	margin: 0 auto;
 }
 
+.recent_post_with_media {
+	margin-bottom: 10px;
+}
+
 .recent_post_with_media img {
 	width: 250px;
+	border-radius: 10px;
 	vertical-align: unset;
 }
 
 .recent-post-title {
-    position: absolute;
-    color: white;
-    width: 100%;
-    padding: 5px;
-    text-align: center;
-    bottom: 0;
-    background: #0000007a;
-    /*display: none;*/
+	position: absolute;
+	color: white;
+	width: 100%;
+	padding: 5px;
+	text-align: center;
+	bottom: 0;
+	background: #0000007a;
+	display: none;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
