@@ -66,12 +66,26 @@
 	}
 
 	// layout Masonry after each image loads
-	imagesLoaded( '.recent_posts_with_media', function() {
+	imagesLoaded('.recent_posts_with_media', function() {
 		var msnry = new Masonry( '.recent_posts_with_media', {
 			itemSelector: '.recent_post_with_media',
 			columnWidth: 260
 		});
 	});
+
+	function postHoverHook() {
+		if (window.jQuery) {
+			$('.recent_post_with_media').mouseenter(function(){
+				$(this).find('.recent-post-title').show();
+			})
+			$('.recent_post_with_media').mouseleave(function(){
+				$(this).find('.recent-post-title').hide();
+			})
+			return;
+		}
+		setTimeout(function(){postHoverHook();}, 500);
+	}
+	postHoverHook();
 
 })();
 </script>
