@@ -23,6 +23,7 @@
 			$('.recent_post_with_media').mouseleave(function(){
 				$(this).find('.recent-post-title').hide();
 			})
+			$('.recent_post_with_media img').css('opacity', '1');
 			return;
 		}
 		setTimeout(function(){postHoverHook();}, 500);
@@ -33,20 +34,10 @@
 			img.addEventListener('load', triggerMasonry, false );
 		});
 		triggerMasonry();
-		var els = document.getElementsByClassName("recent_post_img");
-		var i = 0;
-		for (; i<els.length; i++) {
-			els[i].style.opacity = "1";
-		}
 		postHoverHook();
 	}
 
-	if (window.jQuery) {
-		// page loaded, switching to this view from other view
-		onLoad();
-	} else {
-		window.addEventListener('load', onLoad);
-	}
+	onLoad();
 	// layout Masonry after each image loads
 	// imagesLoaded('.recent_post_with_media img', function() {
 	// 	console.log('image loaded');
