@@ -1,6 +1,6 @@
 {
   "name": "nodebb-widget-image-page",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "NodeBB Masonry Image Page Widgets",
   "main": "library.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/psychobunny/nodebb-widget-image-page"
+    "url": "https://github.com/Arch1tect/nodebb-widget-image-page"
   },
   "keywords": [
     "nodebb",
@@ -18,12 +18,12 @@
     "text"
   ],
   "author": {
-    "name": "psychobunny",
-    "email": "psycho.bunny@hotmail.com"
+    "name": "psychobunny ArchiTech",
+    "email": "swtdavid@gmail.com"
   },
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/psychobunny/nodebb-widget-image-page/issues"
+    "url": "https://github.com/Arch1tect/nodebb-widget-image-page/issues"
   },
   "readme": "",
   "readmeFilename": "README.md",

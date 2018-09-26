@@ -1,8 +1,8 @@
 {
 	"id": "nodebb-widget-image-page",
-	"name": "NodeBB Essential Widgets",
-	"description": "Several basic widgets bundled together in one package including 'HTML', 'Markdown'",
-	"url": "https://github.com/psychobunny/nodebb-widget-image-page",
+	"name": "NodeBB Masonry Image Widgets",
+	"description": "Masonry Image Widgets",
+	"url": "https://github.com/Arch1tect/nodebb-widget-image-page",
 	"library": "./library.js",
 	"hooks": [
 		{

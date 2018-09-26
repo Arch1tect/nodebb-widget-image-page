@@ -33,6 +33,11 @@
 			img.addEventListener('load', triggerMasonry, false );
 		});
 		triggerMasonry();
+		var els = document.getElementsByClassName("recent_post_img");
+		var i = 0;
+		for (; i<els.length; i++) {
+			els[i].style.opacity = "1";
+		}
 		postHoverHook();
 	}
 
