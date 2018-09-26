@@ -23,7 +23,7 @@
 			$('.recent_post_with_media').mouseleave(function(){
 				$(this).find('.recent-post-title').hide();
 			})
-			$('.recent_post_with_media img').css('opacity', '1');
+			// $('.recent_post_with_media img').css('opacity', '1');
 			return;
 		}
 		setTimeout(function(){postHoverHook();}, 500);
@@ -34,6 +34,13 @@
 			img.addEventListener('load', triggerMasonry, false );
 		});
 		triggerMasonry();
+
+		var els = document.getElementsByTagName("img");
+		var i = 0;
+		for (; i<els.length; i++) {
+			els[i].style.opacity = "1";
+		}
+
 		postHoverHook();
 	}
 
