@@ -13,6 +13,9 @@
 		},
 		{
 			"hook": "filter:widget.render:recentpostswithimage", "method": "renderRecentPostsWithImageWidget"
+		},
+		{
+			"hook": "filter:widget.render:recenttopicsnew", "method": "renderRecentTopicsWidgetNew"
 		}
 	],
 	"templates": "./public/templates",

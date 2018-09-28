@@ -6,6 +6,7 @@ var validator = module.parent.require('validator');
 
 var db = module.parent.require('./database');
 var categories = module.parent.require('./categories');
+var topics = module.parent.require('./topics');
 var posts = module.parent.require('./posts');
 var groups = module.parent.require('./groups');
 
@@ -81,6 +82,47 @@ Widget.renderRecentPostsWithImageWidget = function(widget, callback) {
 	], callback);
 };
 
+Widget.renderRecentTopicsWidgetNew = function(widget, callback) {
+	var numTopics = (widget.data.numTopics || 8) - 1;
+	var cids = getCidsArray(widget);
+	async.waterfall([
+		function (next) {
+			var key;
+			if (cids.length) {
+				if (cids.length === 1) {
+					key = 'cid:' + cids[0] + ':tids';
+				} else {
+					key = cids.map(function (cid) {
+						return 'cid:' + cid + ':tids';
+					});
+				}
+			} else {
+				key = 'topics:recent';
+			}
+			topics.getTopicsFromSet(key, widget.uid, 0, Math.max(0, numTopics), next);
+		},
+		function (data, next) {
+			data.topics.forEach(function (topicData) {
+				if (topicData && !topicData.teaser) {
+					topicData.teaser = {
+						user: topicData.user,
+					};
+				}
+			});
+			app.render('widgets/recenttopics', {
+				topics: data.topics,
+				numTopics: numTopics,
+				relative_path: nconf.get('relative_path')
+			}, next);
+		},
+		function (html, next) {
+			widget.html = html;
+			next(null, widget);
+		},
+	], callback);
+};
+
+
 Widget.defineWidgets = function(widgets, callback) {
 	async.waterfall([
 		function(next) {
@@ -90,6 +132,12 @@ Widget.defineWidgets = function(widgets, callback) {
 					name: "Recent Posts With Image",
 					description: "Lists the latest posts on your forum.",
 					content: 'admin/recentpostswithimage'
+				},
+				{
+					widget: "recenttopicsnew",
+					name: "Recent Topics New",
+					description: "Lists the latest topics on your forum.",
+					content: 'admin/recenttopics'
 				}
 			], function(widget, next) {
 				app.render(widget.content, {}, function(err, html) {

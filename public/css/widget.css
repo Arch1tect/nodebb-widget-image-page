@@ -26,3 +26,15 @@
 	border-bottom-right-radius: 10px;
 }
 
+#recent_topics .avatar {
+	border-radius: 100%;
+}
+.recent-topics-topic-wrapper {
+	display: inline-block;
+	margin-bottom: 15px;
+	margin-right: 10px;
+    border-bottom: 1px solid lightgray;
+}
+#recent_topics .username {
+	margin-right: 10px;
+}
